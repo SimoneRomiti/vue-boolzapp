@@ -102,7 +102,7 @@ body{
 
 /* SEARCH */
 .search{
-  height: 8%;
+  height: 6%;
   background: #FFFFFF;
   display: flex;
   align-items: center;
@@ -117,9 +117,15 @@ body{
   justify-content: center;
 }
 .search input{
-  height: 95%;
+  height: 96%;
   width: 80%;
   border: 0;
+}
+.search input:focus{
+  outline: none;
+  height: 100%;
+  border: 2px solid blue;
+  border-radius: 5px;
 }
 /* CAMBIO COLORE PLACEHOLDER CROSS-BROWSER */
 ::-webkit-input-placeholder { /* WebKit browsers (Safari, Google Chrome, Opera 15+) */
