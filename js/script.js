@@ -20,13 +20,19 @@ var app = new Vue(
           avatar: 'img/avatar-2.webp'
         }
       ],
-      active: ""
+      active: 0
     },
     methods: {
       selectedContact: function(element, i){
         if(this.contacts[i] == element){
-          this.active = i
+          this.active = i;
         }
+      },
+      changeAvatar: function(){
+        return this.contacts[this.active]['avatar'];
+      },
+      changeName: function(){
+        return this.contacts[this.active].name;
       }
     }
   }

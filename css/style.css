@@ -153,9 +153,11 @@ body{
 li{
   list-style: none;
   height: 10vh;
-
   display: flex;
   align-items: center;
+}
+li:hover{
+  cursor: pointer;
 }
 .active{
   background: #E9EBEB;
@@ -191,6 +193,7 @@ li img{
   clear: both;
 }
 
+/* TITLE-CHAT */
 .title-chat{
   margin-bottom: 20px;
   height: 10%;
@@ -204,7 +207,9 @@ li img{
   height: 85%;
   margin-left: 10px;
 }
+/* /TITLE-CHAT */
 
+/* MESSAGE */
 .message{
   margin: 10px 30px;
   padding-left: 10px;
@@ -213,6 +218,7 @@ li img{
   border-radius: 10px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 .sent{
   background: #D5F9BA;
@@ -225,6 +231,16 @@ li img{
   clear: right;
 }
 
+.date-hour{
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  font-size: 10px;
+  color: #B6BABB;
+}
+/* /MESSAGE */
+
+/* SCRIVI MESSAGGIO */
 .write{
   width: 100%;
   height: 10vh;
@@ -252,3 +268,4 @@ li img{
   outline: none;
   border: 1px solid blue;
 }
+/* /SCRIVI MESSAGGIO */
