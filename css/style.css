@@ -25,7 +25,6 @@ body{
 .contacts{
   width: 35%;
   height: 100%;
-  background-color: green;
 }
 
 /* TITLE-CONTACTS */
@@ -36,13 +35,14 @@ body{
   justify-content: space-between;
 }
 
-.user{
+.user, .addressee{
+  height: 100%;
   display: flex;
   align-items: center;
 }
 
 .user img{
-  width: 15%;
+  height: 85%;
   margin-left: 10px;
 }
 .user h4{
@@ -170,7 +170,7 @@ li img{
   font-weight: 700;
   margin-left: 20px;
 }
-.last-msg{
+.last-msg, .last-access{
   font-weight: 400;
   font-size: 12px;
   color: #C8C6C7;
@@ -180,5 +180,19 @@ li img{
 .chat{
   width: 65%;
   height: 100%;
-  background: blue;
+  background-image: url("../img/sfondo-whatsapp.png");
+  background-size: contain;
+}
+
+.title-chat{
+  height: 10%;
+  background: #EAEAEA;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.addressee img{
+  height: 85%;
+  margin-left: 10px;
 }
