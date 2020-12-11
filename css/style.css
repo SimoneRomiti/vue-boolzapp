@@ -185,6 +185,7 @@ li img{
 }
 
 .title-chat{
+  margin-bottom: 20px;
   height: 10%;
   background: #EAEAEA;
   display: flex;
@@ -195,4 +196,24 @@ li img{
 .addressee img{
   height: 85%;
   margin-left: 10px;
+}
+
+.message{
+  margin: 10px 30px;
+  padding-left: 10px;
+  width: 40%;
+  min-height: 10vh;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+.sent{
+  background: #D5F9BA;
+  float: right;
+  clear: left;
+}
+.received{
+  background: #FFFFFF;
+  float: left;
+  clear: right;
 }
