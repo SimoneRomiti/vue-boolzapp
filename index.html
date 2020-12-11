@@ -57,7 +57,7 @@
               <div class="name">
                 {{contact.name}}
                 <div class="last-msg">
-                  Prova ultimo messaggio
+                  {{contact.messages[contact.messages.length-1].text}}
                 </div>
               </div>
 
@@ -86,14 +86,11 @@
         </div>
 
         <div class="clearfix">
-          <div class="message sent">
-            PROVA MESSAGGIO INVIATO
+          <div v-for="(message, index) in contacts[active].messages" class="message" :class="message.status">
+            {{message.text}}
             <div class="date-hour">
-              10/01/2020 15:30:55
+              {{message.date}}
             </div>
-          </div>
-          <div class="message received">
-            PROVA MESSAGGIO RICEVUTO
           </div>
         </div>
 

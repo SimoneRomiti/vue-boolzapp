@@ -223,18 +223,18 @@ li img{
 .sent{
   background: #D5F9BA;
   float: right;
-  clear: left;
+  clear: both;
 }
 .received{
   background: #FFFFFF;
   float: left;
-  clear: right;
+  clear: both;
 }
 
 .date-hour{
   position: absolute;
   bottom: 5px;
-  right: 0;
+  right: 5px;
   font-size: 10px;
   color: #B6BABB;
 }
