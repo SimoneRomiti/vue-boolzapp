@@ -1,0 +1,147 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  border-top: 18vh solid #009688;
+  background: #DBDBD3  ;
+}
+
+#container{
+  font-family: 'Lato', sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 90vh;
+  width: 80vw;
+  background: lightgrey;
+  display: flex;
+}
+
+/* CONTACTS */
+.contacts{
+  width: 35%;
+  height: 100%;
+  background-color: green;
+}
+
+/* TITLE-CONTACTS */
+.title-contacts{
+  height: 10%;
+  background: #EAEAEA;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user{
+  display: flex;
+  align-items: center;
+}
+
+.user img{
+  width: 15%;
+  margin-left: 10px;
+}
+.user h4{
+  margin-left: 10px;
+}
+
+.icons{
+  display: flex;
+  align-items: center;
+}
+
+.icons i{
+  margin: 0 5px;
+  color: #B1B1B1;
+  font-size: 18px;
+}
+.icons i:last-child{
+  margin-right: 10px;
+}
+/* /TITLE-CONTACTS */
+
+/* SILENT */
+.silent{
+  height: 10%;
+  background: #8EDAFC;
+  display: flex;
+  align-items: center;
+}
+
+.icon-container{
+  background: #F2FBFF;
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+  border-radius: 50%;
+  line-height: 40px;
+  text-align: center;
+}
+
+.icon-container i{
+  color: #8EDAFC;
+}
+
+.text{
+  margin-left: 10px;
+}
+.text .received-notification{
+  color: #3F6078;
+  font-size: 14px;
+}
+.text .desktop-notification{
+  color: #74A6C0;
+  font-size: 12px;
+  text-decoration: underline;
+}
+/* /SILENT */
+
+/* SEARCH */
+.search{
+  height: 8%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon{
+  width: 20%;
+  height: 100%;
+  color: #C0BFBF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search input{
+  height: 95%;
+  width: 80%;
+  border: 0;
+}
+/* CAMBIO COLORE PLACEHOLDER CROSS-BROWSER */
+::-webkit-input-placeholder { /* WebKit browsers (Safari, Google Chrome, Opera 15+) */
+    color: #BBB7BF;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: #BBB7BF;
+   opacity: 1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: #BBB7BF;
+   opacity: 1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color: #BBB7BF;
+}
+/* /CAMBIO COLORE PLACEHOLDER CROSS-BROWSER */
+
+
+/* CHAT */
+.chat{
+  width: 65%;
+  height: 100%;
+  background: blue;
+}
