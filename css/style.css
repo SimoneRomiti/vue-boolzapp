@@ -182,6 +182,13 @@ li img{
   height: 100%;
   background-image: url("../img/sfondo-whatsapp.png");
   background-size: contain;
+  position: relative;
+}
+
+.clearfix::after{
+  display: table;
+  content: '';
+  clear: both;
 }
 
 .title-chat{
@@ -216,4 +223,26 @@ li img{
   background: #FFFFFF;
   float: left;
   clear: right;
+}
+
+.write{
+  width: 100%;
+  height: 10vh;
+  background: #F3EEEA;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+
+.smile, .vocal{
+  width: 10%;
+  line-height: 10vh;
+  text-align: center;
+  font-size: 25px;
+}
+.write input{
+  height: 80%;
+  width: 80%;
 }
