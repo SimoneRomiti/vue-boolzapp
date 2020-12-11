@@ -245,4 +245,10 @@ li img{
 .write input{
   height: 80%;
   width: 80%;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.write input:focus{
+  outline: none;
+  border: 1px solid blue;
 }
