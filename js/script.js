@@ -31,7 +31,7 @@ var app = new Vue(
 
       			{
       				date: '10/01/2020 16:15:22',
-      				text: 'Tutto fatto!',
+      				text: 'Tutto fatto! ciao asasda asdasda asdasdas asdasdasd asdasdas asdasdas asdasdas dasdasdad asasdasd asdasdsad asdasdsad asdsadd asdsadasd asdasdsa dasdsad sadasd asda sda sdas asdas assdas asdasdas asdasdsa',
       				status: 'received'
       			}
           ],
