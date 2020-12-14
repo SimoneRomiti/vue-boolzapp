@@ -6,6 +6,11 @@
 // ●	Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
 // ●	Click sul contatto mostra la conversazione del contatto cliccato
 
+// Milestone 3
+// Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+// Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
+
+
 var app = new Vue(
   {
     el: "#container",
@@ -15,31 +20,39 @@ var app = new Vue(
 	      { //MICHELE
 		      name: 'Michele',
 		      avatar: 'img/avatar-1.webp',
+          written: "",
+          newMessage: {
+            date: new Date(),
+            text: "",
+            status: 'sent'
+          },
           messages: [
-
             {
       				date: '10/01/2020 15:30:55',
       				text: 'Hai portato a spasso il cane?',
       				status: 'sent'
       			},
-
       			{
       				date: '10/01/2020 15:50:00',
       				text: 'Ricordati di dargli da mangiare',
       				status: 'sent'
       			},
-
       			{
       				date: '10/01/2020 16:15:22',
-      				text: 'Tutto fatto! ciao asasda asdasda asdasdas asdasdasd asdasdas asdasdas asdasdas dasdasdad asasdasd asdasdsad asdasdsad asdsadd asdsadasd asdasdsa dasdsad sadasd asda sda sdas asdas assdas asdasdas asdasdsa',
+      				text: 'Tutto fatto!',
       				status: 'received'
-      			}
+      			},
           ],
         }, //FINE MICHELE
 
         { //FABIO
           name: 'Fabio',
           avatar: 'img/avatar-2.webp',
+          newMessage: {
+            date: '20/03/2020 16:30:00',
+            text: "",
+            status: 'sent'
+          },
           messages: [
       			{
       				date: '20/03/2020 16:30:00',
@@ -62,6 +75,11 @@ var app = new Vue(
         { //SAMUELE
           name: "Samuele",
           avatar: 'img/avatar-3.png',
+          newMessage: {
+            date: '20/03/2020 16:30:00',
+            text: "",
+            status: 'sent'
+          },
           messages: [
             {
               date: '28/03/2020 10:10:40',
@@ -84,6 +102,11 @@ var app = new Vue(
         { //LUISA
           name: "Luisa",
           avatar: 'img/avatar-4.jpg',
+          newMessage: {
+            date: '20/03/2020 16:30:00',
+            text: "",
+            status: 'sent'
+          },
           messages: [
             {
               date: '10/01/2020 15:30:55',
@@ -112,7 +135,32 @@ var app = new Vue(
       },
       changeName: function(){
         return this.contacts[this.active].name;
+      },
+      sendMessage: function(){
+        if(event.which == 13){
+          var correntMonth = this.contacts[this.active].newMessage.date.getMonth() + 1;
+
+          var correntDay = this.contacts[this.active].newMessage.date.getDate();
+
+          var correntYear = this.contacts[this.active].newMessage.date.getFullYear();
+
+          var correntHour = this.contacts[this.active].newMessage.date.getHours();
+
+          var correntMinutes = this.contacts[this.active].newMessage.date.getMinutes();
+
+          this.contacts[this.active].newMessage.date =
+          correntDay + "/" + correntMonth + "/" + correntYear + " " + correntHour + ":" + correntMinutes;
+
+          this.contacts[this.active].newMessage.text = this.contacts[this.active].written;
+          var messageToSend = this.contacts[this.active].newMessage;
+          this.contacts[this.active].messages.push(messageToSend);
+
+          this.contacts[this.active].written = "";
+
+
+
+        }
       }
     }
   }
-)
+);

@@ -99,7 +99,7 @@
           <div class="smile">
             <i class="far fa-smile"></i>
           </div>
-          <input type="text" name="" value="" placeholder="Scrivi messaggio">
+          <input @keydown="sendMessage()" v-model="contacts[active].written" type="text" name="" value="" placeholder="Scrivi messaggio">
           <div class="vocal">
             <i class="fas fa-microphone"></i>
           </div>

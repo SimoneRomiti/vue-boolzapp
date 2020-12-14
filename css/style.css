@@ -214,15 +214,8 @@ li img{
   position: relative;
 }
 
-.clearfix::after{
-  display: table;
-  content: '';
-  clear: both;
-}
-
 /* TITLE-CHAT */
 .title-chat{
-  margin-bottom: 20px;
   height: 10%;
   background: #EAEAEA;
   display: flex;
@@ -237,6 +230,17 @@ li img{
 /* /TITLE-CHAT */
 
 /* MESSAGE */
+.clearfix{
+  height: calc(90% - 10vh);
+  overflow-y: scroll;
+}
+
+.clearfix::after{
+  display: table;
+  content: '';
+  clear: both;
+}
+
 .message{
   margin: 10px 30px;
   padding: 20px;
