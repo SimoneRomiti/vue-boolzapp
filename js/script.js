@@ -139,16 +139,12 @@ var app = new Vue(
       sendMessage: function(){
         if(event.which == 13){
 
+          // DATA E ORA INVIO MESSAGGIO
           var totalDate = new Date();
-
           var correntMonth = totalDate.getMonth() + 1;
-
           var correntDay = totalDate.getDate();
-
           var correntYear = totalDate.getFullYear();
-
           var correntHour = totalDate.getHours();
-
           var correntMinutes = totalDate.getMinutes();
 
           console.log(correntMinutes.len);
@@ -160,14 +156,19 @@ var app = new Vue(
 
           totalDate =
           correntDay + "/"+ correntMonth + "/" + correntYear + " " + correntHour + ":" + correntMinutes;
+          // FINE DATA E ORA INVIO MESSAGGIO
+
 
           var textNewMessage = this.contacts[this.active].inputText;
 
+          // NUOVO OGGETTO CON INFORMAZIONI NUOVO MESSAGGIO
           this.contacts[this.active].newMessage = {
             date: totalDate,
             text: textNewMessage,
             status: 'sent'
           }
+
+          // PUSH NUOVO OGGETTO IN ARRAY MESSAGGI
           this.contacts[this.active].messages.push(this.contacts[this.active].newMessage);
 
           this.contacts[this.active].inputText = "";
