@@ -21,11 +21,6 @@ var app = new Vue(
 		      name: 'Michele',
 		      avatar: 'img/avatar-1.webp',
           inputText: "",
-          newMessage: {
-            date: "",
-            text: "",
-            status: 'sent'
-          },
           messages: [
             {
       				date: '10/01/2020 15:30:55',
@@ -48,8 +43,9 @@ var app = new Vue(
         { //FABIO
           name: 'Fabio',
           avatar: 'img/avatar-2.webp',
+          inputText: "",
           newMessage: {
-            date: '20/03/2020 16:30:00',
+            date: "",
             text: "",
             status: 'sent'
           },
@@ -75,8 +71,9 @@ var app = new Vue(
         { //SAMUELE
           name: "Samuele",
           avatar: 'img/avatar-3.png',
+          inputText: "",
           newMessage: {
-            date: '20/03/2020 16:30:00',
+            date: "",
             text: "",
             status: 'sent'
           },
@@ -102,8 +99,9 @@ var app = new Vue(
         { //LUISA
           name: "Luisa",
           avatar: 'img/avatar-4.jpg',
+          inputText: "",
           newMessage: {
-            date: '20/03/2020 16:30:00',
+            date: "",
             text: "",
             status: 'sent'
           },
@@ -139,41 +137,56 @@ var app = new Vue(
       sendMessage: function(){
         if(event.which == 13){
 
-          // DATA E ORA INVIO MESSAGGIO
-          var totalDate = new Date();
-          var correntMonth = totalDate.getMonth() + 1;
-          var correntDay = totalDate.getDate();
-          var correntYear = totalDate.getFullYear();
-          var correntHour = totalDate.getHours();
-          var correntMinutes = totalDate.getMinutes();
-
-          console.log(correntMinutes.len);
-            if(correntMinutes <= 9){
-              correntMinutes = "0" + correntMinutes;
-            } else{
-              correntMinutes;
-            }
-
-          totalDate =
-          correntDay + "/"+ correntMonth + "/" + correntYear + " " + correntHour + ":" + correntMinutes;
-          // FINE DATA E ORA INVIO MESSAGGIO
-
-
+          var totalDate = this.getMessageDate();
           var textNewMessage = this.contacts[this.active].inputText;
 
           // NUOVO OGGETTO CON INFORMAZIONI NUOVO MESSAGGIO
-          this.contacts[this.active].newMessage = {
+          var newMessageObject = {
             date: totalDate,
             text: textNewMessage,
             status: 'sent'
           }
 
           // PUSH NUOVO OGGETTO IN ARRAY MESSAGGI
-          this.contacts[this.active].messages.push(this.contacts[this.active].newMessage);
+          this.contacts[this.active].messages.push(newMessageObject);
 
           this.contacts[this.active].inputText = "";
 
+          this.answerMessage();
         }
+      },
+      answerMessage: function(){
+        var answer = setTimeout(
+          () => {
+            var totalDate = this.getMessageDate();
+            var newAnswerObject = {
+              date: totalDate,
+              text: "Ok!",
+              status: "received"
+            }
+            this.contacts[this.active].messages.push(newAnswerObject)
+          }, 1000
+        );
+      },
+      getMessageDate: function(){
+        // DATA E ORA INVIO MESSAGGIO
+        var totalDate = new Date();
+        var currentMonth = totalDate.getMonth() + 1;
+        var currentDay = totalDate.getDate();
+        var currentYear = totalDate.getFullYear();
+        var currentHour = totalDate.getHours();
+        var currentMinutes = totalDate.getMinutes();
+
+          if(currentMinutes <= 9){
+            currentMinutes = "0" + currentMinutes;
+          } else{
+            currentMinutes;
+          }
+
+        totalDate =
+        currentDay + "/"+ currentMonth + "/" + currentYear + " " + currentHour + ":" + currentMinutes;
+        return totalDate;
+        // FINE DATA E ORA INVIO MESSAGGIO
       }
     }
   }

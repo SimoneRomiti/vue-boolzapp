@@ -232,7 +232,7 @@ li img{
 /* MESSAGE */
 .clearfix{
   height: calc(90% - 10vh);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .clearfix::after{
