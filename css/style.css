@@ -110,9 +110,12 @@ body{
   background: #FFFFFF;
   display: flex;
   align-items: center;
+  border-top: 1px solid lightgrey;
 }
 
 .search-icon{
+  border: 0;
+  background: white;
   width: 20%;
   height: 100%;
   color: #C0BFBF;
@@ -120,15 +123,20 @@ body{
   align-items: center;
   justify-content: center;
 }
+.search-icon:hover{
+  background: #F4F5F5;
+  cursor: pointer;
+  color: #8EDAFC;
+}
 .search input{
-  height: 96%;
+  height: 100%;
   width: 80%;
   border: 0;
 }
 .search input:focus{
   outline: none;
   height: 100%;
-  border: 2px solid blue;
+  border: 2px solid #8EDAFC;
   border-radius: 5px;
 }
 /* CAMBIO COLORE PLACEHOLDER CROSS-BROWSER */
@@ -288,6 +296,11 @@ li img{
   line-height: 10vh;
   text-align: center;
   font-size: 25px;
+  color: #727272;
+  cursor: pointer;
+}
+.smile:hover, .vocal:hover {
+  color: #8EDAFC;
 }
 .write input{
   height: 80%;
@@ -297,6 +310,6 @@ li img{
 }
 .write input:focus{
   outline: none;
-  border: 1px solid blue;
+  border: 2px solid #8EDAFC;
 }
 /* /SCRIVI MESSAGGIO */
