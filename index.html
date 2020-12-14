@@ -50,8 +50,8 @@
         </div>
 
         <div class="contacts-list">
-          <ul>
-            <li v-for="(contact, index) in contacts" @click="selectedContact(contact, index)" :class="(active == index) ? 'active' : ''">
+          <ul v-if="filteredContacts.length !=0">
+            <li v-for="(contact, index) in filteredContacts" @click="selectedContact(contact, index)" :class="(active == index) ? 'active' : ''">
 
               <img :src="contact.avatar" alt="">
 
@@ -64,6 +64,9 @@
 
             </li>
           </ul>
+          <div v-else>
+            Non ho trovato nessun contatto.
+          </div>
         </div>
       </div>
 

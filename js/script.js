@@ -20,6 +20,7 @@ var app = new Vue(
 
     data: {
       search: "",
+      filteredContacts: [],
       contacts: [
 	      { //MICHELE
 		      name: 'Michele',
@@ -125,7 +126,14 @@ var app = new Vue(
       ],
       active: 0
     },
-
+    created : function(){
+      this.filteredContacts = this.contacts.filter(
+        (element) => {
+          return true;
+        }
+      );
+      console.log(this.filteredContacts);
+    },
     methods: {
       selectedContact: function(element, i){
         if(this.contacts[i] == element){
@@ -193,15 +201,15 @@ var app = new Vue(
         // FINE DATA E ORA INVIO MESSAGGIO
       },
       searchContact: function(){
-        this.contacts = this.contacts.filter(
-          (element, index) => {
-            return this.contacts[index].name.includes("Mich");
-          }
-        );
-        console.log(this.contacts);
-
-
-
+        if(this.search != ""){
+          this.filteredContacts = this.contacts.filter(
+            (element, index) => {
+              return this.contacts[index].name.toUpperCase().includes(this.search.toUpperCase());
+            }
+          );
+        } else{
+          this.filteredContacts = this.contacts;
+        }
       }
     }
   }
