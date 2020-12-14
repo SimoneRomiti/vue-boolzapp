@@ -20,9 +20,9 @@ var app = new Vue(
 	      { //MICHELE
 		      name: 'Michele',
 		      avatar: 'img/avatar-1.webp',
-          written: "",
+          inputText: "",
           newMessage: {
-            date: new Date(),
+            date: "",
             text: "",
             status: 'sent'
           },
@@ -138,26 +138,39 @@ var app = new Vue(
       },
       sendMessage: function(){
         if(event.which == 13){
-          var correntMonth = this.contacts[this.active].newMessage.date.getMonth() + 1;
 
-          var correntDay = this.contacts[this.active].newMessage.date.getDate();
+          var totalDate = new Date();
 
-          var correntYear = this.contacts[this.active].newMessage.date.getFullYear();
+          var correntMonth = totalDate.getMonth() + 1;
 
-          var correntHour = this.contacts[this.active].newMessage.date.getHours();
+          var correntDay = totalDate.getDate();
 
-          var correntMinutes = this.contacts[this.active].newMessage.date.getMinutes();
+          var correntYear = totalDate.getFullYear();
 
-          this.contacts[this.active].newMessage.date =
-          correntDay + "/" + correntMonth + "/" + correntYear + " " + correntHour + ":" + correntMinutes;
+          var correntHour = totalDate.getHours();
 
-          this.contacts[this.active].newMessage.text = this.contacts[this.active].written;
-          var messageToSend = this.contacts[this.active].newMessage;
-          this.contacts[this.active].messages.push(messageToSend);
+          var correntMinutes = totalDate.getMinutes();
 
-          this.contacts[this.active].written = "";
+          console.log(correntMinutes.len);
+            if(correntMinutes <= 9){
+              correntMinutes = "0" + correntMinutes;
+            } else{
+              correntMinutes;
+            }
 
+          totalDate =
+          correntDay + "/"+ correntMonth + "/" + correntYear + " " + correntHour + ":" + correntMinutes;
 
+          var textNewMessage = this.contacts[this.active].inputText;
+
+          this.contacts[this.active].newMessage = {
+            date: totalDate,
+            text: textNewMessage,
+            status: 'sent'
+          }
+          this.contacts[this.active].messages.push(this.contacts[this.active].newMessage);
+
+          this.contacts[this.active].inputText = "";
 
         }
       }
