@@ -208,7 +208,7 @@ var app = new Vue(
     },
 
     updated: function() {
-      this.$nextTick(() => this.scrollToEnd());
+     this.scrollToEnd();
     },
 
     methods: {
