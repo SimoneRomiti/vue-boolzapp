@@ -282,6 +282,11 @@ li img{
   z-index: 2;
 }
 
+.popup i{
+  position: absolute;
+  right: 5px;
+  top: -20px;
+}
 
 .popup ul{
   list-style: none;

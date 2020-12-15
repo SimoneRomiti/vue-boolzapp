@@ -36,7 +36,7 @@ var app = new Vue(
           messages: [
             {
       				date: '10/01/2020 15:30:55',
-      				text: 'Hai portato a spasso il cane? asasa asdsaadsa sadasdsa asdasda asdsdas asasdsa asdas',
+      				text: 'Hai portato a spasso il cane? asasa asdsaadsa sadasdsa asdasda asdsdas asasdsa asdas asdasdasdas sdasdasdasdas asdasdsdasdas asdasdsasas sadassdasdasdas sadasdasdasdasdas fasffs asfaasfasfaf asfasfafasf asffsafas s asjlasjlksa jaògjaòegj aeòeòagaòljgae laekfòlekòa aòafòksòfòsfla fkaf òasf',
       				status: 'sent',
               visible: false,
       			},
@@ -230,15 +230,17 @@ var app = new Vue(
       },
       popupVisibility: function(element, i){
 
-
         for(var k = 0; k < this.contacts[this.active].messages.length; k++){
+          if(i != k)
           this.contacts[this.active].messages[k].visible = false;
         }
 
         if(element.visible == false){
           element.visible = true;
+        } else {
+          element.visible = false;
         }
-      }
+      },
     }
   }
 );

@@ -93,9 +93,10 @@
           <div v-for="(message, index) in filteredContacts[active].messages" @click="popupVisibility(message, index)" class="message" :class="message.status">
             {{message.text}}
             <div class="popup" v-if="message.visible">
+              <i class="fas fa-chevron-down"></i>
               <ul>
                 <li>Message info</li>
-                <li>Delete message</li>
+                <li @click="deleteMessage(message, index)">Delete message</li>
               </ul>
             </div>
             <div class="date-hour">
