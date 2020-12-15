@@ -140,13 +140,13 @@ var app = new Vue(
           messages: [
             {
               date: '10/01/2020 15:30:55',
-      				text: 'Lo sai che ha aperto una nuova pizzeria?',
+      				text: 'Ciao Ceci, ci vediamo oggi dopo pranzo?',
       				status: 'sent',
               visible: false,
       			},
       			{
       				date: '10/01/2020 15:50:00',
-      				text: 'Si, ma preferirei andare al cinema',
+      				text: 'Ok, andiamo a fare una passeggiata!',
       				status: 'received',
               visible: false,
             }
@@ -161,13 +161,13 @@ var app = new Vue(
           messages: [
             {
               date: '10/01/2020 15:30:55',
-      				text: 'Lo sai che ha aperto una nuova pizzeria?',
+      				text: 'Ciao Mirco, ci sei stasera per vedere la partia?',
       				status: 'sent',
               visible: false,
       			},
       			{
       				date: '10/01/2020 15:50:00',
-      				text: 'Si, ma preferirei andare al cinema',
+      				text: 'Certo! Sono da te alle 20:00',
       				status: 'received',
               visible: false,
             }
@@ -182,13 +182,13 @@ var app = new Vue(
           messages: [
             {
               date: '10/01/2020 15:30:55',
-      				text: 'Lo sai che ha aperto una nuova pizzeria?',
+      				text: 'Hey ciao come stai?',
       				status: 'sent',
               visible: false,
       			},
       			{
       				date: '10/01/2020 15:50:00',
-      				text: 'Si, ma preferirei andare al cinema',
+      				text: 'Tutto bene grazie, tu?',
       				status: 'received',
               visible: false,
             }
