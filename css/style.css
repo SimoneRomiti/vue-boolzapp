@@ -165,11 +165,11 @@ body{
   width: 100%;
 }
 
-ul{
+.contact-list ul{
   width: 100%;
 }
 
-li{
+.contacts-list li{
   border-top: 1px solid lightgrey;
   list-style: none;
   height: 10vh;
@@ -177,10 +177,10 @@ li{
   display: flex;
   align-items: center;
 }
-li:last-child{
+.contacts-list li:last-child{
   border-bottom: 1px solid lightgrey;
 }
-li:hover{
+.contacts-list li:hover{
   cursor: pointer;
   background: #F4F5F5;
 }
@@ -259,7 +259,7 @@ li img{
   display: flex;
   align-items: center;
   position: relative;
-}
+  }
 .sent{
   background: #D5F9BA;
   float: right;
@@ -269,6 +269,36 @@ li img{
   background: #FFFFFF;
   float: left;
   clear: both;
+}
+
+.popup{
+  width: 200px;
+  background: #E9EBEB;
+  border-radius: 5px;
+  color: grey;
+  position: absolute;
+  top: 7vh;
+  right: 8px;
+  z-index: 2;
+}
+
+
+.popup ul{
+  list-style: none;
+  text-align: center;
+  margin: 5px 0;
+}
+
+.popup li{
+  margin: 0 10px;
+  padding: 5px 0;
+}
+.popup li:last-child{
+  border-top: 1px solid grey;
+}
+.popup li:hover{
+  background: white;
+  cursor: pointer;
 }
 
 .date-hour{

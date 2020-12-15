@@ -13,6 +13,13 @@
 // Milestone 4
 // Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
 
+// Milestone 5 - opzionale
+// Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
+//
+// Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
+
+
+
 
 var app = new Vue(
   {
@@ -29,18 +36,21 @@ var app = new Vue(
           messages: [
             {
       				date: '10/01/2020 15:30:55',
-      				text: 'Hai portato a spasso il cane?',
-      				status: 'sent'
+      				text: 'Hai portato a spasso il cane? asasa asdsaadsa sadasdsa asdasda asdsdas asasdsa asdas',
+      				status: 'sent',
+              visible: false,
       			},
       			{
       				date: '10/01/2020 15:50:00',
       				text: 'Ricordati di dargli da mangiare',
-      				status: 'sent'
+      				status: 'sent',
+              visible: false,
       			},
       			{
       				date: '10/01/2020 16:15:22',
       				text: 'Tutto fatto!',
-      				status: 'received'
+      				status: 'received',
+              visible: false,
       			},
           ],
         }, //FINE MICHELE
@@ -49,26 +59,31 @@ var app = new Vue(
           name: 'Fabio',
           avatar: 'img/avatar-2.webp',
           inputText: "",
+          visible: false,
           newMessage: {
             date: "",
             text: "",
-            status: 'sent'
+            status: 'sent',
+            visible: false,
           },
           messages: [
       			{
       				date: '20/03/2020 16:30:00',
       				text: 'Ciao come stai?',
-      				status: 'sent'
+      				status: 'sent',
+              visible: false,
       			},
       			{
       				date: '20/03/2020 16:30:55',
       				text: 'Bene grazie! Stasera ci vediamo?',
-      				status: 'received'
+      				status: 'received',
+              visible: false,
       			},
       			{
       				date: '20/03/2020 16:35:00',
       				text: 'Mi piacerebbe ma devo andare a fare la spesa.',
-      				status: 'sent'
+      				status: 'sent',
+              visible: false,
       			}
       		],
 	      }, //FINE FABIO
@@ -77,6 +92,7 @@ var app = new Vue(
           name: "Samuele",
           avatar: 'img/avatar-3.png',
           inputText: "",
+          visible: false,
           newMessage: {
             date: "",
             text: "",
@@ -105,6 +121,7 @@ var app = new Vue(
           name: "Luisa",
           avatar: 'img/avatar-4.jpg',
           inputText: "",
+          visible: false,
           newMessage: {
             date: "",
             text: "",
@@ -209,6 +226,17 @@ var app = new Vue(
           );
         } else{
           this.filteredContacts = this.contacts;
+        }
+      },
+      popupVisibility: function(element, i){
+
+
+        for(var k = 0; k < this.contacts[this.active].messages.length; k++){
+          this.contacts[this.active].messages[k].visible = false;
+        }
+
+        if(element.visible == false){
+          element.visible = true;
         }
       }
     }

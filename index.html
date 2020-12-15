@@ -90,8 +90,14 @@
         </div>
 
         <div class="clearfix">
-          <div v-for="(message, index) in filteredContacts[active].messages" class="message" :class="message.status">
+          <div v-for="(message, index) in filteredContacts[active].messages" @click="popupVisibility(message, index)" class="message" :class="message.status">
             {{message.text}}
+            <div class="popup" v-if="message.visible">
+              <ul>
+                <li>Message info</li>
+                <li>Delete message</li>
+              </ul>
+            </div>
             <div class="date-hour">
               {{message.date}}
             </div>
