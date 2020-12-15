@@ -57,7 +57,7 @@
 
               <div class="name">
                 {{contact.name}}
-                <div class="last-msg">
+                <div v-if="contact.notEmpty" class="last-msg">
                   {{contact.messages[contact.messages.length-1].text}}
                 </div>
               </div>

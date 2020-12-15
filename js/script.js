@@ -33,6 +33,7 @@ var app = new Vue(
 		      name: 'Michele',
 		      avatar: 'img/avatar-1.webp',
           inputText: "",
+          notEmpty: true,
           messages: [
             {
       				date: '10/01/2020 15:30:55',
@@ -59,6 +60,7 @@ var app = new Vue(
           name: 'Fabio',
           avatar: 'img/avatar-2.webp',
           inputText: "",
+          notEmpty: true,
           messages: [
       			{
       				date: '20/03/2020 16:30:00',
@@ -85,6 +87,7 @@ var app = new Vue(
           name: "Samuele",
           avatar: 'img/avatar-3.png',
           inputText: "",
+          notEmpty: true,
           messages: [
             {
               date: '28/03/2020 10:10:40',
@@ -111,6 +114,7 @@ var app = new Vue(
           name: "Luisa",
           avatar: 'img/avatar-4.jpg',
           inputText: "",
+          notEmpty: true,
           messages: [
             {
               date: '10/01/2020 15:30:55',
@@ -240,6 +244,11 @@ var app = new Vue(
       },
       deleteMessage: function(element, i){
         this.filteredContacts[this.active].messages.splice(i, 1);
+        if(this.filteredContacts[this.active].messages == ""){
+          this.filteredContacts[this.active].notEmpty = false;
+        }
+        console.log(this.filteredContacts[this.active].notEmpty);
+
       }
     }
   }
