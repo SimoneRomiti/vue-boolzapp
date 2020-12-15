@@ -239,12 +239,12 @@ li img{
 /* /TITLE-CHAT */
 
 /* MESSAGE */
-.clearfix{
+#clearfix{
   height: calc(90% - 10vh);
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
-.clearfix::after{
+#clearfix::after{
   display: table;
   content: '';
   clear: both;

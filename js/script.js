@@ -28,6 +28,7 @@ var app = new Vue(
     data: {
       search: "",
       filteredContacts: [],
+      deleted: false,
       contacts: [
 	      { //MICHELE
 		      name: 'Michele',
@@ -141,6 +142,7 @@ var app = new Vue(
       );
       console.log(this.filteredContacts);
     },
+
     methods: {
 
       selectedContact: function(element, i){
@@ -176,6 +178,8 @@ var app = new Vue(
 
           this.filteredContacts[this.active].inputText = "";
 
+        // $("#clearfix").scrollTop($("#clearfix").scrollHeight);
+
           this.answerMessage();
         }
       },
@@ -193,6 +197,8 @@ var app = new Vue(
             this.filteredContacts[this.active].messages.push(newAnswerObject)
           }, 1000
         );
+
+        // $("#clearfix").scrollTop($("#clearfix").scrollHeight);
       },
 
       getMessageDate: function(){
@@ -231,25 +237,41 @@ var app = new Vue(
 
       popupVisibility: function(element, i){
 
-        for(var k = 0; k < this.filteredContacts[this.active].messages.length; k++){
-          if(i != k)
-          this.filteredContacts[this.active].messages[k].visible = false;
+        if(this.deleted == false){
+          for(var k = 0; k < this.filteredContacts[this.active].messages.length; k++){
+            if(i != k){
+              this.filteredContacts[this.active].messages[k].visible = false;
+            }
+          }
+
+          console.log("contacts", this.contacts[this.active].messages.length);
+          console.log("filtered", this.filteredContacts[this.active].messages.length );
+          console.log("dentro popupVisibility", element.visible);
+
+          if(element.visible == false){
+            element.visible = true;
+          } else {
+            element.visible = false;
+          }
+            console.log("alla fine popupVisibility", element.visible);
+        } else{
+          this.deleted = false;
         }
 
-        if(element.visible == false){
-          element.visible = true;
-        } else {
-          element.visible = false;
-        }
       },
+
       deleteMessage: function(element, i){
+        element.visible = false;
+        console.log(element.visible);
+
+
         this.filteredContacts[this.active].messages.splice(i, 1);
         if(this.filteredContacts[this.active].messages == ""){
           this.filteredContacts[this.active].notEmpty = false;
         }
-        console.log(this.filteredContacts[this.active].notEmpty);
 
-      }
+        this.deleted = true;
+      },
     }
   }
 );
