@@ -59,13 +59,6 @@ var app = new Vue(
           name: 'Fabio',
           avatar: 'img/avatar-2.webp',
           inputText: "",
-          visible: false,
-          newMessage: {
-            date: "",
-            text: "",
-            status: 'sent',
-            visible: false,
-          },
           messages: [
       			{
       				date: '20/03/2020 16:30:00',
@@ -92,27 +85,24 @@ var app = new Vue(
           name: "Samuele",
           avatar: 'img/avatar-3.png',
           inputText: "",
-          visible: false,
-          newMessage: {
-            date: "",
-            text: "",
-            status: 'sent'
-          },
           messages: [
             {
               date: '28/03/2020 10:10:40',
       				text: 'La Marianna va in campagna',
-      				status: 'received'
+      				status: 'received',
+              visible: false,
       			},
       			{
       				date: '28/03/2020 10:20:10',
       				text: 'Sicuro di non aver sbagliato chat?',
-      				status: 'sent'
+      				status: 'sent',
+              visible: false,
       			},
       			{
       				date: '28/03/2020 16:15:22',
       				text: 'Ah scusa!',
-      				status: 'received'
+      				status: 'received',
+              visible: false,
             }
           ],
         }, //FINE SAMUELE
@@ -121,22 +111,18 @@ var app = new Vue(
           name: "Luisa",
           avatar: 'img/avatar-4.jpg',
           inputText: "",
-          visible: false,
-          newMessage: {
-            date: "",
-            text: "",
-            status: 'sent'
-          },
           messages: [
             {
               date: '10/01/2020 15:30:55',
       				text: 'Lo sai che ha aperto una nuova pizzeria?',
-      				status: 'sent'
+      				status: 'sent',
+              visible: false,
       			},
       			{
       				date: '10/01/2020 15:50:00',
       				text: 'Si, ma preferirei andare al cinema',
-      				status: 'received'
+      				status: 'received',
+              visible: false,
             }
           ],
         } //FINE LUISA
@@ -173,7 +159,8 @@ var app = new Vue(
           var newMessageObject = {
             date: totalDate,
             text: textNewMessage,
-            status: 'sent'
+            status: 'sent',
+            visible: false
           }
 
           // PUSH NUOVO OGGETTO IN ARRAY MESSAGGI
@@ -191,7 +178,8 @@ var app = new Vue(
             var newAnswerObject = {
               date: totalDate,
               text: "Prova invio riuscita!",
-              status: "received"
+              status: "received",
+              visible: false
             }
             this.filteredContacts[this.active].messages.push(newAnswerObject)
           }, 1000
@@ -227,12 +215,13 @@ var app = new Vue(
         } else{
           this.filteredContacts = this.contacts;
         }
+        this.active = 0;
       },
       popupVisibility: function(element, i){
 
-        for(var k = 0; k < this.contacts[this.active].messages.length; k++){
+        for(var k = 0; k < this.filteredContacts[this.active].messages.length; k++){
           if(i != k)
-          this.contacts[this.active].messages[k].visible = false;
+          this.filteredContacts[this.active].messages[k].visible = false;
         }
 
         if(element.visible == false){
@@ -241,6 +230,9 @@ var app = new Vue(
           element.visible = false;
         }
       },
+      // deleteMessage: function(element, i){
+      //   this.
+      // }
     }
   }
 );
