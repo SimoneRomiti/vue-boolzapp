@@ -163,6 +163,7 @@ body{
   background: #FFFFFF;
   height: 74%;
   width: 100%;
+  overflow: auto;
 }
 
 .contact-list ul{
@@ -241,7 +242,7 @@ li img{
 /* MESSAGE */
 #clearfix{
   height: calc(90% - 10vh);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 #clearfix::after{

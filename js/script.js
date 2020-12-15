@@ -130,10 +130,74 @@ var app = new Vue(
               visible: false,
             }
           ],
-        } //FINE LUISA
+        }, //FINE LUISA
+
+        { //CECILIA
+          name: "Cecilia",
+          avatar: 'img/avatar-4.jpg',
+          inputText: "",
+          notEmpty: true,
+          messages: [
+            {
+              date: '10/01/2020 15:30:55',
+      				text: 'Lo sai che ha aperto una nuova pizzeria?',
+      				status: 'sent',
+              visible: false,
+      			},
+      			{
+      				date: '10/01/2020 15:50:00',
+      				text: 'Si, ma preferirei andare al cinema',
+      				status: 'received',
+              visible: false,
+            }
+          ],
+        }, //FINE CECILIA
+
+        { //MIRCO
+          name: "Mirco",
+          avatar: 'img/avatar-2.webp',
+          inputText: "",
+          notEmpty: true,
+          messages: [
+            {
+              date: '10/01/2020 15:30:55',
+      				text: 'Lo sai che ha aperto una nuova pizzeria?',
+      				status: 'sent',
+              visible: false,
+      			},
+      			{
+      				date: '10/01/2020 15:50:00',
+      				text: 'Si, ma preferirei andare al cinema',
+      				status: 'received',
+              visible: false,
+            }
+          ],
+        }, //FINE MIRCO
+
+        { //LUCA
+          name: "Luca",
+          avatar: 'img/avatar-1.webp',
+          inputText: "",
+          notEmpty: true,
+          messages: [
+            {
+              date: '10/01/2020 15:30:55',
+      				text: 'Lo sai che ha aperto una nuova pizzeria?',
+      				status: 'sent',
+              visible: false,
+      			},
+      			{
+      				date: '10/01/2020 15:50:00',
+      				text: 'Si, ma preferirei andare al cinema',
+      				status: 'received',
+              visible: false,
+            }
+          ],
+        } //FINE LUCA
       ],
       active: 0
     },
+
     created : function(){
       this.filteredContacts = this.contacts.filter(
         (element) => {
@@ -143,8 +207,11 @@ var app = new Vue(
       console.log(this.filteredContacts);
     },
 
-    methods: {
+    updated: function() {
+      this.$nextTick(() => this.scrollToEnd());
+    },
 
+    methods: {
       selectedContact: function(element, i){
         if(this.filteredContacts[i] == element){
           this.active = i;
@@ -161,10 +228,8 @@ var app = new Vue(
 
       sendMessage: function(){
         if(event.which == 13){
-
           var totalDate = this.getMessageDate();
           var textNewMessage = this.filteredContacts[this.active].inputText;
-
           // NUOVO OGGETTO CON INFORMAZIONI NUOVO MESSAGGIO
           var newMessageObject = {
             date: totalDate,
@@ -172,13 +237,9 @@ var app = new Vue(
             status: 'sent',
             visible: false
           }
-
           // PUSH NUOVO OGGETTO IN ARRAY MESSAGGI
           this.filteredContacts[this.active].messages.push(newMessageObject);
-
           this.filteredContacts[this.active].inputText = "";
-
-        // $("#clearfix").scrollTop($("#clearfix").scrollHeight);
 
           this.answerMessage();
         }
@@ -197,8 +258,6 @@ var app = new Vue(
             this.filteredContacts[this.active].messages.push(newAnswerObject)
           }, 1000
         );
-
-        // $("#clearfix").scrollTop($("#clearfix").scrollHeight);
       },
 
       getMessageDate: function(){
@@ -236,41 +295,34 @@ var app = new Vue(
       },
 
       popupVisibility: function(element, i){
-
         if(this.deleted == false){
           for(var k = 0; k < this.filteredContacts[this.active].messages.length; k++){
             if(i != k){
               this.filteredContacts[this.active].messages[k].visible = false;
             }
           }
-
-          console.log("contacts", this.contacts[this.active].messages.length);
-          console.log("filtered", this.filteredContacts[this.active].messages.length );
-          console.log("dentro popupVisibility", element.visible);
-
           if(element.visible == false){
             element.visible = true;
           } else {
             element.visible = false;
           }
-            console.log("alla fine popupVisibility", element.visible);
         } else{
           this.deleted = false;
         }
-
       },
 
       deleteMessage: function(element, i){
-        element.visible = false;
-        console.log(element.visible);
-
-
         this.filteredContacts[this.active].messages.splice(i, 1);
         if(this.filteredContacts[this.active].messages == ""){
           this.filteredContacts[this.active].notEmpty = false;
         }
-
         this.deleted = true;
+      },
+
+      scrollToEnd: function() {
+        const chatBox =
+        this.$el.querySelector('#clearfix');
+        chatBox.scrollTop = chatBox.scrollHeight;
       },
     }
   }
