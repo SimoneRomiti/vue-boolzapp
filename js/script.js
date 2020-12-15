@@ -138,17 +138,21 @@ var app = new Vue(
       console.log(this.filteredContacts);
     },
     methods: {
+
       selectedContact: function(element, i){
         if(this.filteredContacts[i] == element){
           this.active = i;
         }
       },
+
       changeAvatar: function(){
         return this.filteredContacts[this.active]['avatar'];
       },
+
       changeName: function(){
         return this.filteredContacts[this.active].name;
       },
+
       sendMessage: function(){
         if(event.which == 13){
 
@@ -171,6 +175,7 @@ var app = new Vue(
           this.answerMessage();
         }
       },
+
       answerMessage: function(){
         var answer = setTimeout(
           () => {
@@ -185,6 +190,7 @@ var app = new Vue(
           }, 1000
         );
       },
+
       getMessageDate: function(){
         // DATA E ORA INVIO MESSAGGIO
         var totalDate = new Date();
@@ -205,6 +211,7 @@ var app = new Vue(
         return totalDate;
         // FINE DATA E ORA INVIO MESSAGGIO
       },
+
       searchContact: function(){
         if(this.search != ""){
           this.filteredContacts = this.contacts.filter(
@@ -217,6 +224,7 @@ var app = new Vue(
         }
         this.active = 0;
       },
+
       popupVisibility: function(element, i){
 
         for(var k = 0; k < this.filteredContacts[this.active].messages.length; k++){
@@ -230,9 +238,9 @@ var app = new Vue(
           element.visible = false;
         }
       },
-      // deleteMessage: function(element, i){
-      //   this.
-      // }
+      deleteMessage: function(element, i){
+        this.filteredContacts[this.active].messages.splice(i, 1);
+      }
     }
   }
 );
