@@ -42,11 +42,11 @@
         </div>
 
         <div class="search">
-          <button @click="searchContact()" class="search-icon">
+          <div class="search-icon">
             <i class="fas fa-search"></i>
-          </button>
+          </div>
 
-          <input v-model="search" type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
+          <input v-model="search" @keyup="searchContact()" type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
         </div>
 
         <div class="contacts-list">
@@ -90,7 +90,7 @@
         </div>
 
         <div class="clearfix">
-          <div v-for="(message, index) in contacts[active].messages" class="message" :class="message.status">
+          <div v-for="(message, index) in filteredContacts[active].messages" class="message" :class="message.status">
             {{message.text}}
             <div class="date-hour">
               {{message.date}}
@@ -103,7 +103,7 @@
           <div class="smile">
             <i class="far fa-smile"></i>
           </div>
-          <input @keydown="sendMessage()" v-model="contacts[active].inputText" type="text" name="" value="" placeholder="Scrivi messaggio">
+          <input @keydown="sendMessage()" v-model="filteredContacts[active].inputText" type="text" name="" value="" placeholder="Scrivi messaggio">
           <div class="vocal">
             <i class="fas fa-microphone"></i>
           </div>

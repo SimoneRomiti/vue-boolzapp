@@ -136,21 +136,21 @@ var app = new Vue(
     },
     methods: {
       selectedContact: function(element, i){
-        if(this.contacts[i] == element){
+        if(this.filteredContacts[i] == element){
           this.active = i;
         }
       },
       changeAvatar: function(){
-        return this.contacts[this.active]['avatar'];
+        return this.filteredContacts[this.active]['avatar'];
       },
       changeName: function(){
-        return this.contacts[this.active].name;
+        return this.filteredContacts[this.active].name;
       },
       sendMessage: function(){
         if(event.which == 13){
 
           var totalDate = this.getMessageDate();
-          var textNewMessage = this.contacts[this.active].inputText;
+          var textNewMessage = this.filteredContacts[this.active].inputText;
 
           // NUOVO OGGETTO CON INFORMAZIONI NUOVO MESSAGGIO
           var newMessageObject = {
@@ -160,9 +160,9 @@ var app = new Vue(
           }
 
           // PUSH NUOVO OGGETTO IN ARRAY MESSAGGI
-          this.contacts[this.active].messages.push(newMessageObject);
+          this.filteredContacts[this.active].messages.push(newMessageObject);
 
-          this.contacts[this.active].inputText = "";
+          this.filteredContacts[this.active].inputText = "";
 
           this.answerMessage();
         }
@@ -176,7 +176,7 @@ var app = new Vue(
               text: "Prova invio riuscita!",
               status: "received"
             }
-            this.contacts[this.active].messages.push(newAnswerObject)
+            this.filteredContacts[this.active].messages.push(newAnswerObject)
           }, 1000
         );
       },
