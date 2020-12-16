@@ -208,7 +208,9 @@ var app = new Vue(
     },
 
     updated: function() {
-     this.scrollToEnd();
+      const chatBox =
+      this.$el.querySelector('#clearfix');
+      chatBox.scrollTop = chatBox.scrollHeight;
     },
 
     methods: {
@@ -317,12 +319,6 @@ var app = new Vue(
           this.filteredContacts[this.active].notEmpty = false;
         }
         this.deleted = true;
-      },
-
-      scrollToEnd: function() {
-        const chatBox =
-        this.$el.querySelector('#clearfix');
-        chatBox.scrollTop = chatBox.scrollHeight;
       },
     }
   }
