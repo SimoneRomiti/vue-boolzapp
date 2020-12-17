@@ -207,13 +207,16 @@ var app = new Vue(
       console.log(this.filteredContacts);
     },
 
-    updated: function() {
-      const chatBox =
-      this.$el.querySelector('#clearfix');
-      chatBox.scrollTop = chatBox.scrollHeight;
-    },
-
     methods: {
+      scrollToEnd: function() {
+        const chatBox =
+        this.$el.querySelector('#clearfix');
+        setTimeout(function(){
+          chatBox.scrollTop = chatBox.scrollHeight;
+        }, 0)
+
+      },
+
       selectedContact: function(element, i){
         if(this.filteredContacts[i] == element){
           this.active = i;
@@ -243,6 +246,7 @@ var app = new Vue(
           this.filteredContacts[this.active].messages.push(newMessageObject);
           this.filteredContacts[this.active].inputText = "";
 
+          this.scrollToEnd();
           this.answerMessage();
         }
       },
@@ -258,8 +262,10 @@ var app = new Vue(
               visible: false
             }
             this.filteredContacts[this.active].messages.push(newAnswerObject)
+              this.scrollToEnd();
           }, 1000
         );
+
       },
 
       getMessageDate: function(){
