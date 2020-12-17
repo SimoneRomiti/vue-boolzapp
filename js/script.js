@@ -210,7 +210,7 @@ var app = new Vue(
     methods: {
       scrollToEnd: function() {
         const chatBox =
-        this.$el.querySelector('#clearfix');
+        document.getElementById('clearfix');
         setTimeout(function(){
           chatBox.scrollTop = chatBox.scrollHeight;
         }, 0)
